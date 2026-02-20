@@ -1,2 +1,14 @@
+res://scenes/ObjectiveArea.gd
 res://default_env.tres
+res://scenes/Level2.tscn
+res://scenes/SnowPlatform.gd
+res://scenes/GreenShip.tscn
+res://scenes/Goals.tscn
 res://scenes/MainLevel.tscn
+res://scenes/GreenShip.gd
+res://scenes/PlatformBlue.gd
+res://scenes/PlatformGreen.gd
+res://scenes/StonePlatform.tscn
+res://scenes/SnowPlatform.tscn
+res://scenes/Meteor.tscn
+res://scenes/meteor.gd

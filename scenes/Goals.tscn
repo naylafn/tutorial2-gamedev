@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwakvecx16r6l"]
+
+[ext_resource type="Script" uid="uid://x2rdmjyr1ttw" path="res://scenes/scripts/ObjectiveArea.gd" id="1_0wven"]
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="1_r48xg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wven"]
+
+[node name="Goals" type="Area2D" unique_id=283583992]
+script = ExtResource("1_0wven")
+
+[node name="Fasilkom" type="Sprite2D" parent="." unique_id=896327870]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_r48xg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=942444874]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_0wven")
+
+[connection signal="body_entered" from="." to="." method="_on_Goals_body_entered"]

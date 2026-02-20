@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bubbyvfgdow4i"]
+
+[ext_resource type="PackedScene" uid="uid://2l8dbfsh07v1" path="res://scenes/GreenShip.tscn" id="1_g8psw"]
+[ext_resource type="PackedScene" uid="uid://4dcae4gpc0p3" path="res://scenes/SnowPlatform.tscn" id="2_kkoku"]
+[ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="3_l6gr7"]
+[ext_resource type="Script" uid="uid://bsuv2svmaqypq" path="res://scenes/scripts/PlatformBlue.gd" id="4_sp0w3"]
+[ext_resource type="PackedScene" uid="uid://cwakvecx16r6l" path="res://scenes/Goals.tscn" id="5_qe5b6"]
+[ext_resource type="PackedScene" uid="uid://b5a4ynav86ee6" path="res://scenes/Meteor.tscn" id="6_4p0dt"]
+[ext_resource type="Texture2D" uid="uid://ct1c8e335atit" path="res://assets/galaxy_bg.jpg" id="7_qwp14"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4p0dt"]
+friction = 100.0
+rough = true
+
+[node name="Level2" type="Node2D" unique_id=53580189]
+
+[node name="GreenShip" parent="." unique_id=529904719 instance=ExtResource("1_g8psw")]
+position = Vector2(576, 500)
+mass = 10.0
+
+[node name="SnowPlatform" parent="." unique_id=968409973 instance=ExtResource("2_kkoku")]
+position = Vector2(576, 400)
+
+[node name="Goals" parent="." unique_id=283583992 instance=ExtResource("5_qe5b6")]
+position = Vector2(576, 60)
+
+[node name="StonePlatform" parent="." unique_id=747761894 instance=ExtResource("3_l6gr7")]
+position = Vector2(576, 600)
+physics_material_override = SubResource("PhysicsMaterial_4p0dt")
+sync_to_physics = false
+script = ExtResource("4_sp0w3")
+
+[node name="Meteor" parent="." unique_id=617166338 instance=ExtResource("6_4p0dt")]
+position = Vector2(300, 0)
+
+[node name="Meteor2" parent="." unique_id=381971985 instance=ExtResource("6_4p0dt")]
+position = Vector2(753, 100)
+
+[node name="GalaxyBg" type="Sprite2D" parent="." unique_id=1053303575]
+z_index = -1
+position = Vector2(580.00006, 321.00003)
+scale = Vector2(3.603125, 1.3395833)
+texture = ExtResource("7_qwp14")

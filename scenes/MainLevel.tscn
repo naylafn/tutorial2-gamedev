@@ -1,33 +1,38 @@
-[gd_scene format=3 uid="uid://cdoksexcakmop"]
+[gd_scene format=3 uid="uid://dnw3mcjgbo05q"]
 
 [ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://datfp8kxjrjg" path="res://scenes/BlueShip.tscn" id="2"]
-[ext_resource type="Script" uid="uid://bsuv2svmaqypq" path="res://scenes/PlatformBlue.gd" id="3"]
-[ext_resource type="Script" uid="uid://x2rdmjyr1ttw" path="res://scenes/ObjectiveArea.gd" id="4"]
+[ext_resource type="Script" uid="uid://bsuv2svmaqypq" path="res://scenes/scripts/PlatformBlue.gd" id="3"]
+[ext_resource type="Script" uid="uid://uajdkac131gm" path="res://scenes/scripts/GreenShip.gd" id="4_xum0q"]
+[ext_resource type="PackedScene" uid="uid://cwakvecx16r6l" path="res://scenes/Goals.tscn" id="5_ykko5"]
+[ext_resource type="PackedScene" uid="uid://b5a4ynav86ee6" path="res://scenes/Meteor.tscn" id="5_yxyfn"]
+[ext_resource type="Texture2D" uid="uid://ct1c8e335atit" path="res://assets/galaxy_bg.jpg" id="6_yxyfn"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(138.75, 79)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jsrw5"]
+friction = 100.0
+rough = true
 
 [node name="MainLevel" type="Node" unique_id=832108525]
 
-[node name="PlatformBlue" type="Node2D" parent="." unique_id=1028510209]
-position = Vector2(35, 565)
+[node name="StonePlatform2" parent="." unique_id=1594265889 instance=ExtResource("1")]
+position = Vector2(576, 600)
+physics_material_override = SubResource("PhysicsMaterial_jsrw5")
+sync_to_physics = false
 script = ExtResource("3")
 
-[node name="StonePlatform" parent="PlatformBlue" unique_id=964098601 instance=ExtResource("1")]
-
-[node name="StonePlatform2" parent="PlatformBlue" unique_id=1594265889 instance=ExtResource("1")]
-position = Vector2(70, 0)
-
 [node name="BlueShip" parent="." unique_id=150247224 instance=ExtResource("2")]
-position = Vector2(72.7009, 421.901)
+position = Vector2(576, 500)
+mass = 10.0
 lock_rotation = true
+script = ExtResource("4_xum0q")
 
-[node name="ObjectiveArea" type="Area2D" parent="." unique_id=779178061]
-script = ExtResource("4")
+[node name="Goals" parent="." unique_id=283583992 instance=ExtResource("5_ykko5")]
+position = Vector2(576, 100)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea" unique_id=670694693]
-position = Vector2(70.625, 40)
-shape = SubResource("1")
+[node name="Meteor" parent="." unique_id=617166338 instance=ExtResource("5_yxyfn")]
 
-[connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
+[node name="GalaxyBg" type="Sprite2D" parent="." unique_id=683739165]
+z_index = -1
+position = Vector2(575.50006, 323.5)
+scale = Vector2(3.603125, 1.3395833)
+texture = ExtResource("6_yxyfn")
